@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First app: Contact</title>
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      a {
+        padding: 16px;
+      }
+      div {
+        border: 1px solid gray;
+        padding: 20px;
+        margin: 30px;
+      }
+      .table {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 10px;
+        background-color: aliceblue;
+        padding: 5px;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>We are inside first app: Contact page</h1>
+      <h2>Author Name: {{author}}</h2>
+    </div>
+    <div>
+      <a href="/">App Home</a>
+      <a href="/first_app/about/">About</a>
+      <a href="/first_app/contact/">Contact</a>
+      <a href="/second_app/feedback/">feedback</a>
+      <a href="/second_app/courses/">courses</a>
+    </div>
+
+    <!-- django template language if else -->
+    <div>
+      <h3>django template language if else</h3>
+      {% if age >= 18 %}
+      <p style="color: green">You are eligible for driving license</p>
+      {% else %}
+      <p style="color: red">You are not eligible fro driving license</p>
+      {% endif %}
+    </div>
+
+    <!-- django template language for loop -->
+    <div>
+      <h3>django template language for loop</h3>
+
+      <h3>Contact data</h3>
+      <div class="table">
+        {% for person in persons %}
+        <div>
+          <p>id: {{person.id}}</p>
+          <p>name: {{person.name}}</p>
+          <p>phone: {{person.phone_number}}</p>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- django template language for filter -->
+    <div>
+      <h3>django template language for filter</h3>
+
+      <div>
+        <h3>Add value</h3>
+        <h3>{{ age | add:'2' }}</h3>
+      </div>
+    </div>
+  </body>
+</html>
