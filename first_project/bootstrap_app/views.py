@@ -19,4 +19,4 @@ def home(request):
    return render(request, './bootstrap/index.html', {"courses": data})
 
 def about(request):
-   return render(request, './bootstrap/about.html', {"courses": data})
+   return render(request, './bootstrap/about.html', {"author": "glenn maxwell", "courses": data})

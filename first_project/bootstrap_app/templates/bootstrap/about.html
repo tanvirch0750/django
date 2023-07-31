@@ -1,4 +1,14 @@
 <!-- prettier-ignore -->
 {% extends "base.html" %} 
+{% load first_tags %}
 {% block title %} Bootstrap about {% endblock %}
 {%block page_name %} This is a bootstrap app: about page {% endblock %}
+
+
+{% block page_content %}
+<section>
+  <h2>Author: {{author}}</h2>
+  <h2>Changed Author: {{author|change_author_name:'change'}}</h2>
+  <h2>Conver author to title case: {{author|change_author_name:'title'}}</h2>
+</section>
+{% endblock page_content %}
