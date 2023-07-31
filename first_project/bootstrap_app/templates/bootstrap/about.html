@@ -6,9 +6,16 @@
 
 
 {% block page_content %}
+<!-- template tags filter -->
 <section>
   <h2>Author: {{author}}</h2>
   <h2>Changed Author: {{author|change_author_name:'change'}}</h2>
   <h2>Conver author to title case: {{author|change_author_name:'title'}}</h2>
+</section>
+
+<!-- template tags cutstom template -->
+<section>
+  <h1>Courses Data</h1>
+  {% show_courses %}
 </section>
 {% endblock page_content %}
