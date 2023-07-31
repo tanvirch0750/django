@@ -10,6 +10,7 @@ def courses(request):
                        <a href="/first_app/contact/">Contact</a>
                        <a href="/second_app/feedback/">feedback</a>
                        <a href="/second_app/courses/">courses</a>
+                       <a href="/bootstrap_app/">Bootstrap</a>
                        ''')
 
 
@@ -21,4 +22,5 @@ def feedback(request):
                        <a href="/first_app/contact/">Contact</a>
                        <a href="/second_app/feedback/">feedback</a>
                        <a href="/second_app/courses/">courses</a>
+                       <a href="/bootstrap_app/">Bootstrap</a>
                        ''')

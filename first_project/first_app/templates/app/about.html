@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>First app: About</title>
 
-    <link rel="stylesheet" href="{% static 'css/first.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'first_app_static/css/first.css' %}"
+    />
   </head>
   <body>
     <header>
@@ -17,10 +20,14 @@
       <a href="/first_app/contact/">Contact</a>
       <a href="/second_app/feedback/">feedback</a>
       <a href="/second_app/courses/">courses</a>
+      <a href="/bootstrap_app/">Bootstrap</a>
     </header>
 
     <div>
-      <img src="{% static 'images/parking.jpg' %}" alt="hotel image" />
+      <img
+        src="{% static 'first_app_static/images/parking.jpg' %}"
+        alt="hotel image"
+      />
     </div>
   </body>
 </html>
