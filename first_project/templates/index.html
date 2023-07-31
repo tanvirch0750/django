@@ -1,20 +1,28 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Django</title>
-    <style>
-      a {
-        padding: 16px;
-      }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   </head>
   <body>
     <h1>This is my first ever html template</h1>
-    <a href="/first_app/about/">About</a>
-    <a href="/first_app/contact/">Contact</a>
-    <a href="/second_app/feedback/">feedback</a>
-    <a href="/second_app/courses/">courses</a>
+    <div>
+      <a href="/first_app/about/">About</a>
+      <a href="/first_app/contact/">Contact</a>
+      <a href="/second_app/feedback/">feedback</a>
+      <a href="/second_app/courses/">courses</a>
+    </div>
+
+    <div>
+      <h1>Module - 03 More template</h1>
+      <h2>Static Files Image</h2>
+      <img src="{% static 'images/hotels.jpg' %}" alt="hotel image" />
+    </div>
+
+    <script src="{% static 'js/index.js' %}"></script>
   </body>
 </html>
