@@ -1,23 +1,22 @@
 <!-- prettier-ignore -->
-{% extends "base.html" %} 
-{% load first_tags %} 
 
-<table class="table"></table>
- <thead>
+{% load first_tags %}
+
+<table class="table">
+  <thead>
     <tr>
       <th scope="col">#ID</th>
-      <th scope="col">Course Name</th>
+      <th scope="col">Course</th>
       <th scope="col">Teacher</th>
     </tr>
   </thead>
   <tbody>
- {% for course in courses %}
-   <tr>
-    <td>{{course.id}}</th>
-    <td>{{course.course}}</td>
-    <td>{{course.teacher}}</td>
-  </tr>
-   
-{% endfor %}
-</tbody> 
+    {% for course in courses %}
+    <tr>
+      <td>{{course.id}}</td>
+      <td>{{course.course}}</td>
+      <td>{{course.teacher}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
 </table>
