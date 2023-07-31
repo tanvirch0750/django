@@ -12,14 +12,6 @@
     <title>Bootstrap home page</title>
   </head>
   <body>
-    <!-- <div>
-      <h1>Hello, this is Bootstap app home page</h1>
-      <a href="/">App Home</a>
-      <a href="/first_app/about/">About</a>
-      <a href="/first_app/contact/">Contact</a>
-      <a href="/second_app/feedback/">feedback</a>
-      <a href="/second_app/courses/">courses</a>
-    </div> -->
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Django</a>
@@ -41,7 +33,7 @@
               <a class="nav-link" href="/">App Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/first_app/about/">About</a>
+              <a class="nav-link" href="{% url 'firstApp_about' %}">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/first_app/contact/">Contact</a>
@@ -51,6 +43,11 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/second_app/courses/">courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'bootstrap_home' %}"
+                >bootstrap</a
+              >
             </li>
           </ul>
         </div>

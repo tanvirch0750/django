@@ -6,24 +6,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Django</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}" /> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <h1>This is my first ever html template</h1>
-    <div>
-      <a href="/first_app/about/">About</a>
-      <a href="/first_app/contact/">Contact</a>
-      <a href="/second_app/feedback/">feedback</a>
-      <a href="/second_app/courses/">courses</a>
-      <a href="/bootstrap_app/">Bootstrap</a>
-    </div>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Django</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">App Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'firstApp_about' %}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/first_app/contact/">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/second_app/feedback/">feedback</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/second_app/courses/">courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'bootstrap_home' %}"
+                >bootstrap</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h1>This is my first ever html template</h1>
     <div>
       <h1>Module - 03 More template</h1>
       <h2>Static Files Image</h2>
       <img src="{% static 'images/hotels.jpg' %}" alt="hotel image" />
     </div>
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
     <script src="{% static 'js/index.js' %}"></script>
   </body>
 </html>
