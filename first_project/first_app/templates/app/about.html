@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,18 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>First app: About</title>
 
-    <style>
-      a {
-        padding: 16px;
-      }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/first.css' %}" />
   </head>
   <body>
-    <h1>We are inside first app: About page</h1>
-    <a href="/">App Home</a>
-    <a href="/first_app/about/">About</a>
-    <a href="/first_app/contact/">Contact</a>
-    <a href="/second_app/feedback/">feedback</a>
-    <a href="/second_app/courses/">courses</a>
+    <header>
+      <h1>We are inside first app: About page</h1>
+      <a href="/">App Home</a>
+      <a href="/first_app/about/">About</a>
+      <a href="/first_app/contact/">Contact</a>
+      <a href="/second_app/feedback/">feedback</a>
+      <a href="/second_app/courses/">courses</a>
+    </header>
+
+    <div>
+      <img src="{% static 'images/parking.jpg' %}" alt="hotel image" />
+    </div>
   </body>
 </html>
