@@ -6,9 +6,12 @@ from django import forms
 class contactForm(forms.Form):
     name = forms.CharField(label="Your Name", initial='Tanvir', help_text='Enter your name', required=False, disabled=False, validators=[validators.MinLengthValidator(10, message='Enter a name with atleast 10 characters')])
     
-    file = forms.FileField(label="Your profile image", validators=[validators.FileExtensionValidator(allowed_extensions=['pdf'], message='File extension must me ended with .pdf')])
+    # file = forms.FileField(label="Your profile image", validators=[validators.FileExtensionValidator(allowed_extensions=['pdf', 'png'], message='File extension must me ended with .pdf')])
     
     email = forms.EmailField(label="Your Email")
+    
+    password = forms.CharField(label="Your password", widget=forms.PasswordInput)
+    confirm_password = forms.CharField(label="Confirm password", widget=forms.PasswordInput)
     
     birthDate = forms.DateField(label="Your Birthday", widget=forms.DateInput(attrs= { 'type' : 'date'}))
     
@@ -52,5 +55,12 @@ class contactForm(forms.Form):
     #          raise forms.ValidationError('Your email must contain .com')
          
          
-    # built in validatior
+    # password validation
+    def clean(self):
+        cleaned_data = super().clean()
+        val_pass = self.cleaned_data['password']
+        val_confirm_pass = self.cleaned_data['confirm_password']
+        if val_pass != val_confirm_pass:
+             raise forms.ValidationError('Password does not match')
+   
         
