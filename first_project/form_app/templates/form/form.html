@@ -2,22 +2,43 @@
 {% extends "base.html" %} 
 {% load first_tags %}
 {% block title %} form {% endblock %}
-{%block page_name %} This is a form app: form page {% endblock %}
+
 
 
 {% block page_content %}
-<section class="container-md">
-  <form method="POST" action="/form_app/">
+<section class="container-md" style="max-width: 700px; margin-top: 20px">
+  <h2>Moveie Rating App</h2>
+  <form
+    method="POST"
+    action="/form_app/"
+    class="bg-primary p-4 text-white rounded"
+  >
     {% csrf_token %}
     <div class="mb-3">
-      <label for="name" class="form-label">Your Name</label>
+      <label for="name" class="form-label">Movie Name:</label>
       <input type="text" class="form-control" id="name" name="name" />
     </div>
     <div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="email" name="email" />
+      <label for="genre" class="form-label">Genre:</label>
+      <input type="text" class="form-control" id="genre" name="genre" />
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="mb-3">
+      <label for="rating" class="form-label">Movie Rating:</label>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        name="select"
+      >
+        <option selected>Ratings</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-danger">Submit</button>
   </form>
 </section>
 

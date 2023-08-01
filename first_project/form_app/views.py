@@ -6,8 +6,9 @@ from django.shortcuts import render
 def home(request):
    if(request.method == 'POST'):
        name = request.POST.get('name')
-       email = request.POST.get('email')
-       return render(request, './form/index.html', {'name': name, 'email': email})
+       genre = request.POST.get('email')
+       rating = request.POST.get('select')
+       return render(request, './form/index.html', {'name': name, 'genre': genre, 'rating': rating})
    else:
        return render(request, './form/index.html')
 
