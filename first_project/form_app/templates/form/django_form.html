@@ -1,0 +1,17 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %} 
+{% load first_tags %}
+{% block title %} django form {% endblock %}
+
+
+
+{% block page_content %}
+<section class="container-md">
+  <h2>Django form App</h2>
+  <form method="POST">
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</section>
+
+{% endblock page_content %}
