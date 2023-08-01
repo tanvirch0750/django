@@ -28,4 +28,5 @@ urlpatterns = [
     path('first_app/', include('first_app.urls')),
     path('second_app/', include('second_app.urls')),
     path('bootstrap_app/', include('bootstrap_app.urls')),
+    path('form_app/', include('form_app.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

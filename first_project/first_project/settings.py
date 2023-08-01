@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'first_app',
     'second_app',
-    'bootstrap_app'
+    'bootstrap_app',
+    'form_app',
 ]
 
 MIDDLEWARE = [

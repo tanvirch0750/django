@@ -1,0 +1,16 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %} 
+{% load first_tags %}
+{% block title %} form home {% endblock %}
+{%block page_name %} This is a form app: home page {% endblock %}
+
+
+{% block page_content %}
+<section class="mt-4">
+  <div class="container-md">
+    <h2>Form Data:</h2>
+    <h3>Name: {{name}}</h3>
+    <h3>Email: {{email}}</h3>
+  </div>
+</section>
+{% endblock page_content %}

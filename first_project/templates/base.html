@@ -54,12 +54,18 @@
                 >bootstrap about</a
               >
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'form_home' %}">Form Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'form' %}">Form</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <section>
+    <section class="container-md">
       <h1>{% block page_name %} {% endblock %}</h1>
     </section>
 
