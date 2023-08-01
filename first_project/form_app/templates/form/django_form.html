@@ -2,14 +2,14 @@
 {% extends "base.html" %} 
 {% load first_tags %}
 {% block title %} django form {% endblock %}
-
+{% load crispy_forms_tags %}
 
 
 {% block page_content %}
-<section class="container-md">
-  <h2>Django form App</h2>
-  <form method="POST">
-    {{form.as_p}}
+<section class="container-md" style="max-width: 700px; margin-top: 20px">
+  <h2 class="mb-5">Django form App</h2>
+  <form method="POST" class="border p-5 rounded">
+    {% csrf_token %} {{form | crispy}}
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </section>
