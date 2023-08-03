@@ -7,3 +7,6 @@ class Student(models.Model):
     roll = models.IntegerField(primary_key=True)
     address = models.TextField()
     father_name = models.TextField(default='Rahim')
+    
+    def __str__(self) -> str:
+        return f"Rolle: {self.roll} - {self.name}"
