@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'second_app',
     'bootstrap_app',
     'form_app',
+    'django_model',
     "crispy_forms",
     "crispy_bootstrap5",
 ]

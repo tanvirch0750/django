@@ -29,4 +29,5 @@ urlpatterns = [
     path('second_app/', include('second_app.urls')),
     path('bootstrap_app/', include('bootstrap_app.urls')),
     path('form_app/', include('form_app.urls')),
+    path('django_model/', include('django_model.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
