@@ -15,5 +15,13 @@ def delete_student(request, roll):
    return redirect("django_model")
 
 def model_form(request):
-   std = StudentForm()
-   return render(request, './form_model.html', {'form': std})
+   if request.method == 'POST':
+      form = StudentForm(request.POST)
+      if form.is_valid():
+         # form.save(commit=False)
+         form.save()
+         print(form.cleaned_data)
+   
+   else :
+     form = StudentForm()
+   return render(request, './form_model.html', {'form': form})
