@@ -9,16 +9,20 @@
   <h1>Django Model Page</h1>
 
   <!-- prettier-ignore -->
-  {% if students %} 
-  
-  {% for st in students %}
-  <div class="border p-4">
-    <p>Roll: {{st.roll}}</p>
-    <p>Name: {{st.name}}</p>
-    <p>Father: {{st.father_name}}</p>
-    <p>Address: {{st.address}}</p>
+  {% if students %}
+  <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+    {% for st in students %}
+    <div class="border p-3 col">
+      <p>Roll: {{st.roll}}</p>
+      <p>Name: {{st.name}}</p>
+      <p>Father: {{st.father_name}}</p>
+      <p>Address: {{st.address}}</p>
+      <a class="btn btn-danger" href="{% url 'delete_student' st.roll %}"
+        >Delete</a
+      >
+    </div>
+    {% endfor %} {% else %}
   </div>
-  {% endfor %} {% else %}
   <h3>No data found</h3>
   {% endif %}
 </section>
