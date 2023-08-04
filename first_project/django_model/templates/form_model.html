@@ -1,0 +1,17 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %} 
+{% load first_tags %}
+{% load crispy_forms_tags %}
+{% block title %} Bootstrap about {% endblock %}
+
+
+{% block page_content %}
+<section class="container-md my-5" style="max-width: 700px">
+  <h1>Django Model: Form Model</h1>
+
+  <form class="border p-3 rounded mt-3">
+    {{form | crispy}}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</section>
+{% endblock page_content %}
