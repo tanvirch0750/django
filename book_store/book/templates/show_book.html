@@ -4,6 +4,71 @@
 
 {% block page_content %}
 
-<h1>This is for show book</h1>
+<section class="px-4 my-12">
+  <h1 class="text-center text-3xl font-medium text-slate-950 mb-3">
+    All Books
+  </h1>
+  {% if books %}
+  <div class="overflow-x-auto">
+    <table class="table text-center border mt-5">
+      <!-- head -->
+      <thead class="bg-slate-100">
+        <tr>
+          <th>#id</th>
+          <th>Book Cover</th>
+          <th>Book Name</th>
+          <th>Author</th>
+          <th>Category</th>
+          <th>First Publication</th>
+          <th>Las Publication</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- row 1 -->
+        {% for book in books %}
+
+        <tr>
+          <th>
+            <label> {{book.id}} </label>
+          </th>
+          <td>
+            <div class="flex items-center space-x-3">
+              <div class="avatar">
+                <div class="mask mask-squircle w-14 h-14">
+                  <img src="{{book.book_cover}}" alt="book cover" />
+                </div>
+              </div>
+            </div>
+          </td>
+          <td>{{book.book_name}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.category}}</td>
+          <td>{{book.first_pub}}</td>
+          <td>{{book.last_pub}}</td>
+          <th>
+            <a
+              href="{% url 'edit_book' id=book.id %}"
+              class="btn btn-success btn-xs"
+              >Edit</a
+            >
+            <a
+              href="{% url 'delete_book' id=book.id %}"
+              class="btn btn-error btn-xs"
+              >Delete</a
+            >
+          </th>
+        </tr>
+
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="px-4 md:container">
+    <h1 class="text-4xl text-red-700 text-center my-11">No Data found!</h1>
+  </div>
+  {% endif %}
+</section>
 
 {% endblock page_content %}

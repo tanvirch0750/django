@@ -13,7 +13,6 @@ def store_book(request):
         bookForm = BookStoreForm(request.POST)
         if bookForm.is_valid():
             bookForm.save()
-            print(bookForm.cleaned_data)
             return redirect('show_books')
     else:
         bookForm = BookStoreForm
@@ -23,3 +22,20 @@ def store_book(request):
 def show_books(request):
     book = BookStoreModel.objects.all()
     return render(request, 'show_book.html', {'books': book})
+
+
+def edit_book(request, id):
+    book = BookStoreModel.objects.get(pk = id)
+    bookForm = BookStoreForm(instance=book)
+    if request.method == 'POST': 
+        bookForm = BookStoreForm(request.POST, instance=book)
+        if bookForm.is_valid():
+            bookForm.save()
+            return redirect('show_books')
+        
+    return render(request, 'store_book.html', {'form': bookForm, 'edit': True})
+
+
+def delete_book(request, id):
+    book = BookStoreModel.objects.get(pk = id).delete()
+    return redirect("show_books")

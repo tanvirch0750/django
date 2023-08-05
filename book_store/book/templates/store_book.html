@@ -8,10 +8,20 @@
 {% block page_content %}
 
 <section class="md:container mx-auto my-12">
+  {% if edit %}
+  <h1 class="text-center text-3xl font-medium text-slate-950 mb-3">
+    Edit Book
+  </h1>
+  {% else %}
   <h1 class="text-center text-3xl font-medium text-slate-950 mb-3">Add Book</h1>
+  {% endif %}
+
   <form class="max-w-2xl mx-auto bg-base-200 p-8 rounded-md" method="POST">
-    {% csrf_token %} {{form | crispy}}
+    {% csrf_token %} {{form | crispy}} {% if edit %}
+    <button class="btn btn-primary text-white w-full">Edit Book</button>
+    {% else %}
     <button class="btn btn-primary text-white w-full">Add Book</button>
+    {% endif %}
   </form>
 </section>
 {% endblock page_content %}
