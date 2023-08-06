@@ -8,6 +8,21 @@ from . import models
 # Create your views here.
 def home(request):
    student = models.Student.objects.all()
+   
+   ## one to many / many to many
+   # studnet list for one teacher
+   teacher = models.Teacher.objects.get(name='Shakib')
+   students2 = teacher.student.all()
+   
+   for stud in students2:
+      print(stud.name, stud.roll, stud.class_name)
+   
+   # teacher list for one student
+   students3 = models.Student2.objects.get(name='std2')
+   teachers = students3.teachers.all()
+   
+   for teach in teachers:
+      print(teach.name, teach.subject, teach.mobile)
    return render(request, './home.html', {'students': student})
 
 def delete_student(request, roll):

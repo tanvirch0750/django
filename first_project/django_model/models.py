@@ -89,7 +89,7 @@ class Student2(models.Model):
         return self.name
     
 class Teacher(models.Model):
-    student = models.ManyToManyField(Student2)
+    student = models.ManyToManyField(Student2, related_name='teachers')
     name = models.CharField(max_length=30)
     subject = models.CharField(max_length=20)
     mobile = models.CharField(max_length=11)
