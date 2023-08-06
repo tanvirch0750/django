@@ -12,4 +12,26 @@ class Student(models.Model):
         return f"Rolle: {self.roll} - {self.name}"
     
     
+    
+# Modle inheritance and abstract class
+class CommonInfoClass(models.Model):
+    name = models.CharField(max_length=30)
+    city = models.CharField(max_length=30)
+    
+    class Meta:
+        abstract = True
+
+
+class StudentInfoModel(CommonInfoClass):
+    roll = models.IntegerField()
+    payment = models.IntegerField()
+    section = models.CharField(max_length=15)
+
+class TeacherInfoModel(CommonInfoClass):
+    salary = models.IntegerField()
+    
+    
+
+    
+    
 
