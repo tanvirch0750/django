@@ -42,6 +42,21 @@ class ManagerModel(EmployeeModel):
     hiring = models.BooleanField()
     
     
+# Proxy model
+class Friend(models.Model): # my friend is present in class
+    school = models.CharField(max_length=40)
+    section = models.CharField(max_length=10)
+    class_teacher = models.CharField(max_length=20)
+    attendence = models.BooleanField()
+    hw = models.CharField(max_length=50)
+    
+    
+class Me(Friend): # I am not present in class
+    class Meta:
+        proxy = True
+        ordering = ['id']
+    
+    
     
     
 

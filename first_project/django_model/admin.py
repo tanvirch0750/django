@@ -10,14 +10,23 @@ from . import models
 # admin.site.register(models.ManagerModel)
 
 
-@admin.register(models.EmployeeModel)
-class EmployeeModelAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'city', 'designation')
+# @admin.register(models.EmployeeModel)
+# class EmployeeModelAdmin(admin.ModelAdmin):
+#     list_display = ('id', 'name', 'city', 'designation')
     
     
-@admin.register(models.ManagerModel)
-class ManagerModelAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'city', 'designation', 'take_interview', 'hiring')
+# @admin.register(models.ManagerModel)
+# class ManagerModelAdmin(admin.ModelAdmin):
+#     list_display = ('id', 'name', 'city', 'designation', 'take_interview', 'hiring') 
+
+@admin.register(models.Friend)
+class FriendModelAdmin(admin.ModelAdmin):
+    list_display = ('id', 'school', 'section', 'attendence', 'class_teacher', 'hw')
+    
+    
+@admin.register(models.Me)
+class MeModelAdmin(admin.ModelAdmin):
+    list_display = ('id', 'school', 'section', 'attendence', 'class_teacher', 'hw')
     
     
 
