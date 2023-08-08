@@ -1,0 +1,59 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %} 
+{% load crispy_forms_tags %}
+{% load tailwind_filters %}
+{% block title %} Auth - login {% endblock %}
+
+
+{% block page_content %}
+
+<section class="max-w-6xl mx-auto px-3 my-14">
+  <h1 class="text-center text-3xl font-medium text-green-700 mb-3">
+    Change Password
+  </h1>
+  {% if form.non_field_errors %} {% for err in form.non_field_errors %}
+  <div class="toast toast-top toast-center text-white">
+    <div class="alert alert-error">
+      <span class="text-white">{{ err }}</span>
+      <button class="close-button text-white">✕</button>
+    </div>
+  </div>
+  {% endfor %} {% endif %}
+  <form
+    class="max-w-2xl mx-auto bg-green-50 p-8 rounded-md"
+    method="POST"
+    novalidate
+  >
+    {% csrf_token %}
+    <!-- {% csrf_token %} {{form | crispy}} -->
+    <!-- prettier-ignore -->
+    {% for fm in form %}
+    <div class="mb-3">
+      {{fm.label_tag}} {{fm}}
+      <span class="text-xs text-red-500">{{fm.errors | striptags}}</span>
+    </div>
+    {%endfor%}
+    <button
+      class="btn btn-primary bg-green-700 text-white w-full hover:border-0 hover:bg-green-600 border-0"
+    >
+      Change Password
+    </button>
+  </form>
+</section>
+
+{% endblock page_content %} {% block js_script %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const closeButtons = document.querySelectorAll('.close-button');
+
+    closeButtons.forEach((button) => {
+      button.addEventListener('click', function () {
+        const toastElement = this.closest('.toast');
+        toastElement.style.display = 'none';
+      });
+    });
+  });
+</script>
+
+{% endblock js_script %}

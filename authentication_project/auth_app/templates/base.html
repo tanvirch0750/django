@@ -13,7 +13,7 @@
     <title>{% block title %} {% endblock %}</title>
   </head>
   <body>
-    <div class="navbar bg-base-200">
+    <div class="navbar bg-green-700">
       <div class="navbar-start">
         <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -36,54 +36,49 @@
             tabindex="0"
             class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <a
-                class="text-md text-primary font-medium"
-                href="{% url 'home' %}"
-                >Home</a
-              >
-            </li>
-            <li>
-              <a
-                class="text-md text-primary font-medium"
-                href="{% url 'show_books' %}"
-                >Show Books</a
-              >
-            </li>
-            <li>
-              <a
-                class="text-md text-primary font-medium"
-                href="{% url 'store_book' %}"
-                >Add Book</a
-              >
-            </li>
+            <li><a>Item 1</a></li>
+            <li><a>Item 3</a></li>
           </ul>
         </div>
-        <a class="btn normal-case text-xl text-primary" href="{% url 'home' %}"
-          >Book Store</a
+        <a
+          class="normal-case text-xl text-white font-bold"
+          href="{% url 'home' %}"
+          >Authentication</a
         >
       </div>
       <div class="navbar-end hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
-          <li>
-            <a class="text-md text-primary font-medium" href="{% url 'home' %}"
-              >Home</a
+          {% if user.is_authenticated %}
+          <li class="mr-3">
+            <a
+              class="text-md text-white font-medium hover:text-white bg-purple-700 hover:bg-purple-600"
+              href="{% url 'profile' %}"
+              >Profile</a
             >
           </li>
           <li>
             <a
-              class="text-md text-primary font-medium"
-              href="{% url 'show_books' %}"
-              >Show Books</a
+              class="text-md bg-red-700 text-white font-medium hover:text-white hover:bg-red-600"
+              href="{% url 'logout' %}"
+              >Logout</a
+            >
+          </li>
+          {% else %}
+          <li>
+            <a
+              class="text-md text-white font-medium hover:text-white"
+              href="{% url 'login' %}"
+              >login</a
             >
           </li>
           <li>
             <a
-              class="text-md text-primary font-medium"
-              href="{% url 'store_book' %}"
-              >Add Book</a
+              class="text-md text-white font-medium hover:text-white"
+              href="{% url 'signup' %}"
+              >Signup</a
             >
           </li>
+          {% endif %}
         </ul>
       </div>
     </div>
@@ -91,5 +86,7 @@
     <main class="min-h-screen">
       {% block page_content %} {% endblock page_content %}
     </main>
+
+    {% block js_script %} {% endblock js_script %}
   </body>
 </html>
