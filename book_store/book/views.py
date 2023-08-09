@@ -3,8 +3,11 @@ from typing import Any, Dict, List
 from book.forms import BookStoreForm
 from book.models import BookStoreModel
 from django.db.models.query import QuerySet
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, TemplateView
+from django.views.generic.edit import CreateView, FormView
 
 # Create your views here.
 
@@ -55,8 +58,12 @@ def delete_book(request, id):
     return redirect("show_books")
 
 #################################################################################
+#################################################################################
+######################  Class based views  ######################################
+#################################################################################
+#################################################################################
 
-# class based views
+
 class HomeTemplateView(TemplateView): # Home
     template_name = 'home.html'
     
@@ -99,12 +106,33 @@ class BookListView(ListView): # show books - list view
     
 ###########################################################################
 
-class BookDetailsView(DetailView):
+class BookDetailsView(DetailView): # show book details
     model = BookStoreModel
     template_name = 'book_details.html'
     context_object_name = 'book'
     
     pk_url_kwarg = 'id'
+    
+    
+###########################################################################
+
+# class BookFormView(FormView): # store book
+#     template_name =  'store_book.html'
+#     form_class = BookStoreForm
+#     success_url = reverse_lazy('show_books')
+    
+#     def form_valid(self, form: Any) -> HttpResponse:
+#         form.save()
+#         return redirect('show_books')
+
+# another method
+class BookFormView(CreateView): # store book
+    model = BookStoreModel
+    template_name =  'store_book.html'
+    form_class = BookStoreForm
+    success_url = reverse_lazy('show_books')
+    
+    
     
 
     

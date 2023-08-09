@@ -6,10 +6,11 @@ from . import views
 urlpatterns = [
     # path('', home, name="home"),
     # path('show_books/', show_books, name="show_books"),
+    # path('store_book/', store_book, name="store_book"),
     # path('', views.TemplateView.as_view(template_name='home.html')), -> we can directly render template without views like this
     # path('<int:roll>/', views.HomeTemplateView.as_view(), {'author': 'karim'}, name='home'),
     path('', views.HomeTemplateView.as_view(), {'author': 'karim'}, name='home'),
-    path('store_book/', store_book, name="store_book"),
+    path('store_book/', views.BookFormView.as_view(), name="store_book"),
     path('show_books/', views.BookListView.as_view(), name="show_books"),
     path('detail_book/<int:id>', views.BookDetailsView.as_view(), name="detail_book"),
     path('edit_book/<int:id>', edit_book, name="edit_book"),
