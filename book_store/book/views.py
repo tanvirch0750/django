@@ -4,7 +4,7 @@ from book.forms import BookStoreForm
 from book.models import BookStoreModel
 from django.db.models.query import QuerySet
 from django.shortcuts import redirect, render
-from django.views.generic import ListView, TemplateView
+from django.views.generic import DetailView, ListView, TemplateView
 
 # Create your views here.
 
@@ -70,7 +70,7 @@ class HomeTemplateView(TemplateView): # Home
 ###########################################################################
 
 
-class BookListView(ListView):
+class BookListView(ListView): # show books - list view
     model = BookStoreModel
     template_name = 'show_book.html'
     context_object_name = 'books' 
@@ -87,14 +87,30 @@ class BookListView(ListView):
     ordering = ['id']
     
     
-    def get_template_names(self) -> List[str]:
-        if self.request.user.is_superuser:
-            template_name = 'superbooks.html'
-        elif self.request.user.is_staff:
-            template_name = 'stuffbook.html'
-        else:
-            template_name = self.template_name
-        return [template_name]
+    # def get_template_names(self) -> List[str]:
+    #     if self.request.user.is_superuser:
+    #         template_name = 'superbooks.html'
+    #     elif self.request.user.is_staff:
+    #         template_name = 'stuffbook.html'
+    #     else:
+    #         template_name = self.template_name
+    #     return [template_name]
+    
+    
+###########################################################################
+
+class BookDetailsView(DetailView):
+    model = BookStoreModel
+    template_name = 'book_details.html'
+    context_object_name = 'book'
+    
+    pk_url_kwarg = 'id'
+    
+
+    
+    
+    
+
             
     
     

@@ -48,6 +48,11 @@
           <td>{{book.last_pub}}</td>
           <th>
             <a
+              href="{% url 'detail_book' id=book.id %}"
+              class="btn btn-info btn-xs"
+              >Details</a
+            >
+            <a
               href="{% url 'edit_book' id=book.id %}"
               class="btn btn-success btn-xs"
               >Edit</a

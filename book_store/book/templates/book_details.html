@@ -1,0 +1,27 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %} 
+{% block title %} Book Store - Add Book {% endblock %}
+
+{% block page_content %}
+
+<section class="px-4 my-12">
+  <h1 class="text-center text-3xl font-medium text-slate-950 mb-3">
+    Book Details
+  </h1>
+  {% if book %}
+  <div class="overflow-x-auto">
+    <p class="text-2xl font-bold">id: {{book.id}}</p>
+    <p class="text-2xl font-bold">Book Name: {{book.book_name}}</p>
+    <p class="text-2xl font-bold">Author: {{book.author}}</p>
+    <p class="text-2xl font-bold">Category: {{book.category}}</p>
+    <p class="text-2xl font-bold">First Publication: {{book.first_pub}}</p>
+    <p class="text-2xl font-bold">Last Publication: {{book.last_pub}}</p>
+  </div>
+  {% else %}
+  <div class="px-4 md:container">
+    <h1 class="text-4xl text-red-700 text-center my-11">No Book found!</h1>
+  </div>
+  {% endif %}
+</section>
+
+{% endblock page_content %}
