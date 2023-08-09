@@ -53,12 +53,12 @@
               >Details</a
             >
             <a
-              href="{% url 'edit_book' id=book.id %}"
+              href="{% url 'edit_book' pk=book.id %}"
               class="btn btn-success btn-xs"
               >Edit</a
             >
             <a
-              href="{% url 'delete_book' id=book.id %}"
+              href="{% url 'delete_book' pk=book.id %}"
               class="btn btn-error btn-xs"
               >Delete</a
             >

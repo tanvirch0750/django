@@ -6,7 +6,8 @@ from django.db.models.query import QuerySet
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from django.views.generic import DetailView, ListView, TemplateView
+from django.views.generic import (DeleteView, DetailView, ListView,
+                                  TemplateView, UpdateView)
 from django.views.generic.edit import CreateView, FormView
 
 # Create your views here.
@@ -131,6 +132,27 @@ class BookFormView(CreateView): # store book
     template_name =  'store_book.html'
     form_class = BookStoreForm
     success_url = reverse_lazy('show_books')
+    
+    
+###########################################################################
+
+
+class BookUpdateView(UpdateView): # update book
+    model = BookStoreModel
+    template_name =  'store_book.html'
+    form_class = BookStoreForm
+    success_url = reverse_lazy('show_books')
+    
+    
+###########################################################################
+
+class BookDeleteView(DeleteView):
+    model = BookStoreModel
+    template_name = 'delete_confirmation.html'
+    success_url = reverse_lazy('show_books')
+    
+    
+
     
     
     
