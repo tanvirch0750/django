@@ -1,9 +1,13 @@
+from typing import Any, Dict
+
 from book.forms import BookStoreForm
 from book.models import BookStoreModel
 from django.shortcuts import redirect, render
-
+from django.views.generic import TemplateView
 
 # Create your views here.
+
+# function based views
 def home(request):
     return render(request, 'home.html')
 
@@ -39,3 +43,16 @@ def edit_book(request, id):
 def delete_book(request, id):
     book = BookStoreModel.objects.get(pk = id).delete()
     return redirect("show_books")
+
+
+
+# class based views
+class HomeTemplateView(TemplateView):
+    template_name = 'home.html'
+    
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context = {'name': 'rahim', 'age': 22}
+        context.update(kwargs) #update dictionary
+        return context
+    
