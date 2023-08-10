@@ -30,4 +30,5 @@ urlpatterns = [
     path('bootstrap_app/', include('bootstrap_app.urls')),
     path('form_app/', include('form_app.urls')),
     path('django_model/', include('django_model.urls')),
+    path('cookies_app/', include('cookies_app.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
