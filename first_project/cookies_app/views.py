@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 
+from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -41,6 +42,14 @@ def get_session(request):
    age = request.session.get('age')
    language = request.session.get('language')
    return render(request, './cookies/get_session.html', {'name': name, 'age': age, 'language': language})
+
+
+   # if 'name' in request.session:
+   #     name = request.session.get('name')
+   #     request.session.modified = True
+   #     return render(request, './cookies/get_session.html', {'name': name})
+   # else:
+   #    return HttpResponse("Your session has been expired. Kindly login again")
 
 
 def delete_session(request):
