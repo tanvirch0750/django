@@ -21,3 +21,29 @@ def delete_cookie(request):
    response = render(request, './cookies/del_cookie.html')
    response.delete_cookie('name')
    return response
+
+
+# session
+def set_session(request):
+   data = {
+      'name': 'israk',
+      'age': 23,
+      'language': 'Bangla'
+   }
+   request.session.update(data)
+   print(request.session.get_session_cookie_age())
+   print(request.session.get_expiry_date())
+   return render(request, './cookies/home.html')
+
+
+def get_session(request):
+   name = request.session.get('name')
+   age = request.session.get('age')
+   language = request.session.get('language')
+   return render(request, './cookies/get_session.html', {'name': name, 'age': age, 'language': language})
+
+
+def delete_session(request):
+   # del request.session['name'] # delete individula
+   request.session.flush()
+   return render(request, './cookies/del_cookie.html')

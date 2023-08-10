@@ -1,0 +1,18 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %} 
+{% load first_tags %}
+{% block title %} session {% endblock %}
+
+
+
+{% block page_content %}
+<section class="container-md">
+  <h1>This get session app</h1>
+  <h1>Session is getting....</h1>
+
+  <p>{{name}}</p>
+  <p>{{age}}</p>
+  <p>{{language}}</p>
+</section>
+
+{% endblock page_content %}
